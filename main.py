@@ -22,10 +22,6 @@ def load_df(DCA_file, DE_file):
     if file_suffix == '.csv':
         dfOld = pd.read_csv(DE_file)
 
-    # st.write(dfNew)
-    # st.write(dfOld)
-    # st.write(dfHdr)
-    # return null
     df = pd.merge(dfNew, dfOld, how='left', on='apiNum', suffixes=('', '_old'))
     return pd.merge(df, dfHdr, how='left', on='prod_id', suffixes=('', '_hdr'))
 
